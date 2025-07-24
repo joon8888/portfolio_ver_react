@@ -77,7 +77,7 @@ const SectionSkill = () => {
                 <div className="__content--column">
                   <div className="__content--column__image __content--column__image--static">
                     <div className="image__front">
-                      <img src="/images/skill_bg_1.png" alt="" />
+                      <img src="images/skill_bg_1.png" alt="" />
                     </div>
                   </div>
                   <div className="__content--column__image __content--column__image--flip">
@@ -102,19 +102,19 @@ const SectionSkill = () => {
                   </div>
                   <div className="__content--column__image __content--column__image--static">
                     <div className="image__front">
-                      <img src="/images/skill_bg_2.png" alt="" />
+                      <img src="images/skill_bg_2.png" alt="" />
                     </div>
                   </div>
                 </div>
                 <div className="__content--column">
                   <div className="__content--column__image __content--column__image--static">
                     <div className="image__front">
-                      <img src="/images/skill_bg_2.png" alt="" />
+                      <img src="images/skill_bg_2.png" alt="" />
                     </div>
                   </div>
                   <div className="__content--column__image __content--column__image--static">
                     <div className="image__front">
-                      <img src="/images/skill_bg_3.png" alt="" />
+                      <img src="images/skill_bg_3.png" alt="" />
                     </div>
                   </div>
                   <div className="__content--column__image __content--column__image--flip">

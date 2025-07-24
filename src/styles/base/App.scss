@@ -24,3 +24,14 @@ body, html {
   white-space: nowrap;
   border: 0;
 }
+
+.fc {
+  &-purple {
+    color: $color-primary-purple;
+    font-weight: 700;
+  }
+  &-coral {
+    color: $color-primary-coral;
+    font-weight: 700;
+  }
+}

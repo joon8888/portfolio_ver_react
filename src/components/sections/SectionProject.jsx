@@ -3,11 +3,10 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SplitType from 'split-type';
 import ProjectItem from '../items/ProjectItem';
-
+import { tagFilters } from '../../util/getMockData';
 
 gsap.registerPlugin(ScrollTrigger)
 
-const tagFilters = ['All', '구축', '운영', '웹접근성마크 획득', '웹어워드 수상'];
 const projectMockData = [
   {
     id: 1,
@@ -17,6 +16,12 @@ const projectMockData = [
     tags: [
       { label: '운영' },
     ],
+    webType: '적응형',
+    url: 'https://www.kt.com/',
+    role: '상품/혜택 담당 PA',
+    contribution: '100%',
+    description: '<ul><li>CMS 상품 상세페이지 입점 및 수정에 따른 수시 작업</li><li>CMS 정적 페이지 작업 및 소스 관리</li><li>java 페이지 산출물 작업 및 배포</li></ul>',
+    point: '연 1회 접근성 심사 사이트 및 일반 작업 시 KT 내부 접근성 선 검증심사 후 배포 필수'
   },
   {
     id: 2,
@@ -26,8 +31,15 @@ const projectMockData = [
     tags: [
       { label: '구축' },
       { label: '리뉴얼' },
+      { label: '반응형' },
       { label: '웹접근성마크 획득', className: 'project-tag__item--green' },
     ],
+    webType: '반응형',
+    url: 'https://www.samsungwelstory.com/main.do',
+    role: 'PA',
+    contribution: '40%',
+    description: '<ul><li>RFP 메인 제안 건부터 오픈 시까지 작업 참여</li><li>서브 페이지 및 입력 폼 공통 스타일 가이드 구축 담당</li><li>웹접근성 작업</li></ul>',
+    point: '<ul><li>웹와치 웹접근성 마크 획득</li><li>완전 반응형 구축 (모바일/폴더블/패드/PC)</li></ul>'
   },
   {
     id: 3,
@@ -245,7 +257,7 @@ const SectionProject = ({isPopupVisible, onPopupOpen}) => {
           </div>
           <ul className="project-list">
             {filteredProjects.map(project => (
-              <ProjectItem isPopupVisible={isPopupVisible} onPopupOpen={onPopupOpen} key={project.id} project={project} />
+              <ProjectItem isPopupVisible={isPopupVisible} onPopupOpen={() => onPopupOpen(project.id)} key={project.id} project={project} />
             ))}
           </ul>
         </div>

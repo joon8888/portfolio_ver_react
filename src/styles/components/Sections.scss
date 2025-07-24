@@ -33,6 +33,7 @@
 
   &--visual {
     position: relative;
+    overflow: hidden;
     
     .__inner {
       @include flex ($jc: center, $direction: column, $gap: 2rem);
@@ -425,6 +426,10 @@
   top: calc(50% - 15vh);
   transform: translate(-50%, -50%);
   background: radial-gradient(50% 50% at 50% 50%, #6635f0 0%, rgba(160, 135, 229, 0.5) 50%, rgba(217, 217, 217, 0) 100%);
+  @include mobile {
+    width: 32.5rem;
+    height: 32.5rem;
+  }
 
   &-area {
     position: absolute;

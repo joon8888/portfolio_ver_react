@@ -1,0 +1,108 @@
+@use './variables' as *;
+ @use './functions' as *;
+
+// 미디워 쿼리 반응형
+@mixin mobile {
+  @media #{mq('mobile')} {
+    @content;
+  }
+}
+
+@mixin tablet($min-width: null) { 
+  @media #{mq('tablet', null, $min-width)} {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media #{mq('desktop')} {
+    @content;
+  }
+}
+
+@mixin custom-mq($width) {
+  @media #{mq(null, $width)} {
+    @content;
+  }
+}
+
+/* 태블릿 사용 예시
+  @include tablet { 
+    color: blue; // 태블릿, 기본적으로 ~ max-width: 1024px까지만 적용
+  }
+
+  @include tablet(768px) { 
+    color: green; // 768px 이상 1024px 이하 범위에서 녹색
+  }
+*/
+
+@mixin font-style ($fz, $ff : $font-kr, $fw: inherit, $lh: normal, $ls: 0px, $color: inherit) {
+  font-family: $ff;
+  font-size: $fz;
+  font-style: normal;
+  font-weight: $fw;
+  line-height: $lh;
+  letter-spacing: $ls;
+  color: $color;
+  @content;
+}
+
+@mixin flex ($direction: row, $ai: center, $jc: flex-start, $gap: 0) { 
+  display: flex;
+  flex-direction: $direction;
+  align-items: $ai;
+  justify-content: $jc;
+  gap: $gap;
+  @content;
+}
+
+// 가상요소 생성
+@mixin after($w, $h, $content: '') {
+  position: relative;
+
+  &::after {
+    display: block;
+    position: absolute;
+    content: $content;
+    width: $w;
+    height: $h;
+    @content;
+  }
+}
+
+@mixin before($w, $h, $content: '') {
+  position: relative;
+
+  &::before {
+    display: block;
+    position: absolute;
+    content: $content;
+    width: $w;
+    height: $h;
+    @content;
+  }
+}
+
+@mixin before-flex($w, $h, $gap: 0, $content: '') {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: $gap;
+  
+  &::before {
+    display: block;
+    content: $content;
+    width: $w;
+    height: $h;
+    @content;
+  }
+}
+
+// 스타일
+@mixin glass-morphism {
+  background-image: linear-gradient( to bottom right, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100% );
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: rgba(255, 255, 255, 0.5) -20px -20px 45px inset, rgba(0, 0, 0, 0.1) 10px 10px 20px, rgba(0, 0, 0, 0.06) 5px 5px 10px;
+                            
+}

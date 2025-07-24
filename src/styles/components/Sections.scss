@@ -1,0 +1,441 @@
+@use '../utils/index.scss' as *;
+
+.section {
+  min-height: 100dvh;
+  width: 100%;
+
+  .__title {
+    font-family: $font-en-roboto;
+    font-weight: 700;
+    font-size: 7.2rem;
+    letter-spacing: -0.1rem;
+    line-height: 1.2;
+
+    @include tablet {
+      font-size: 6.2rem;
+      line-height: 1.1;
+    }
+    @include mobile {
+      font-size: 3.8rem;
+    }
+  }
+  .__intro {
+    font-size: 2.4rem;
+
+    @include tablet {
+      font-size: 2rem;
+    }
+
+    @include mobile {
+      font-size: 1.4rem;
+    }
+  }
+
+  &--visual {
+    position: relative;
+    
+    .__inner {
+      @include flex ($jc: center, $direction: column, $gap: 2rem);
+      height: 100dvh;
+      padding: 0 2.5rem 15vh 2.5rem;
+      background: $color-white;
+      mix-blend-mode: screen;
+      text-align: center;
+    }
+  }
+
+  &--skill {
+    overflow: hidden;
+
+    @include mobile {
+      padding: 8rem 0;
+    }
+  
+    .__inner {
+      display: flex;
+      width: 165vw;
+
+      @include mobile {
+        width: 100%;
+        flex-direction: column;
+      }
+    }
+  
+    .title-wrap {
+      @include flex($jc: center, $direction: column, $gap: 2rem);
+      height: 100dvh;
+      width: 65vw;
+
+      @include mobile {
+        height: auto;
+        width: 100%;
+        padding: 0 2.5rem;
+        text-align: center;
+      }
+    }
+
+    .content-wrap {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+
+      @include mobile {
+        height: auto;
+        width: 100%;
+        margin-top: 6rem;
+      }
+    }
+  
+    .__inner--grid {
+      position: relative;
+      top: -12.5vh;
+      gap: 2vw;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      width: 100%;
+      padding: 2vw;
+      @include mobile {
+        grid-template-columns: 1fr;
+        gap: 2.4rem;
+        top: auto;
+      }
+
+      .__content--column {
+        &:nth-child(1) {
+          top: -30%
+        }
+      
+        &:nth-child(2) {
+          top: -70%
+        }
+      
+        &:nth-child(3) {
+          top: -30%
+        }
+      
+        &:nth-child(4) {
+          top: -60%
+        }
+      }
+    }
+
+    .__content--column {
+      position: relative;
+      height: 100%;
+      @include flex ($direction:column, $gap: 2rem, $ai: flex-start);
+      white-space: nowrap;
+
+      @include mobile {
+        top: 0 !important;
+        width: fit-content;
+        flex-direction: row;
+        gap: 2rem;
+      }
+
+      &__image {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 2/3;
+        @include mobile {
+          aspect-ratio: 16 / 9;
+          width: 45vw;
+        }
+
+        &--static {
+          overflow: hidden;
+          border-radius: 1vw;
+          box-shadow: 0 5px 32px rgba(0, 0, 0, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+
+          img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            @include mobile {
+              object-position: center 65%;
+            }
+          }
+        }
+
+        &--flip {
+          @media (min-width: $breakpoint-mobile) {
+            perspective: 100rem;
+  
+            &:hover .__inner--flip {
+              transform: rotateY(180deg);
+            }
+
+            .__inner--flip {
+              position: relative;
+              width: 100%;
+              height: 100%;
+              transition: transform 0.8s;
+              transform-style: preserve-3d;
+            }
+
+            .image {
+              &__front, &__back {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden;
+                border-radius: 1vw;
+               // box-shadow: 0 5px 32px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                @include glass-morphism;
+              }
+              &__front {
+                z-index: 2;
+              }
+              &__back {
+                z-index: 1;
+                transform: rotateY(180deg);
+              }
+            }
+          }
+        }
+
+        // img {
+        //   height: 100%;
+        //   object-fit: cover;
+        // }
+      }
+    }
+  }
+
+  &--project {
+    margin-top: 25vh;
+    @include mobile {
+      margin-top: 6rem;
+    }
+
+    .__inner {
+      overflow: hidden;
+    }
+
+    .project {
+      &-scroll-wrap {
+        display: flex;
+
+        @include mobile {
+          flex-direction: column;
+        }
+      }
+
+      &-intro {
+        @include flex ($direction: column, $jc: center, $gap: 4rem);
+        width: 100%;
+        padding: 0 16rem 0 20rem;
+        @include mobile {
+          gap: 2rem;
+          padding: 0rem 2.5rem 5rem;
+        }
+        
+      }
+
+      &-list {
+        @include flex;
+        @include mobile {
+          flex-direction: column;
+        }
+  
+        &__item {
+          width: 100vw;
+          height: 100vh;
+          padding: 8rem 12.8rem;
+  
+          @include tablet {
+            padding: 8rem 6.4rem;
+          }
+          @include mobile {
+            padding: 0
+          }
+  
+          &__link {
+            position: relative;
+            display: block;
+            max-width: 1920px;
+            width: 100%;
+            height: 100%;
+            border-radius: 2.4rem;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+            --overlay-opacity: 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            border-left: 1px solid rgba(255, 255, 255, 0.5);
+  
+            @include mobile { 
+              border: none;
+              border-radius: 0;
+            }
+  
+            &::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-color: rgba(250, 0, 0, var(--overlay-opacity));
+              transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+            }
+          }
+  
+          &__content {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+  
+            &--image img {
+              transition: .45s;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+  
+            &--info {
+              @include flex ($direction: column, $ai: flex-start);
+              padding: 4rem 6rem;
+  
+              @include tablet {
+                padding: 3rem 5rem;
+              }
+              @include mobile {
+                padding: 6rem 2.5rem 2.5rem;
+              }
+  
+              .form-row {
+                @include flex($gap: 2rem, $ai:flex-end) {
+                  @include mobile {
+                    flex-direction: column;
+                    align-items: flex-start;
+                  }
+                }
+              }
+  
+              .__name {
+                font-size: 5.2rem;
+                font-weight: 700;
+                line-height: 1.15;
+                color: $color-black;
+  
+                @include tablet {
+                  font-size: 3.8rem;
+                }
+  
+                @include mobile {
+                  font-size: 2.8rem;
+                }
+              }
+              .__period {
+                margin-top: 2rem;
+                font-size: 1.8rem;
+                font-family: $font-en-lato;
+                font-weight: 500;
+                color: $color-gray-800;
+  
+                @include tablet {
+                  margin-top: 1rem;
+                  font-size: 1.6rem;
+                }
+              }
+            }
+
+            .project-tag {
+              justify-content: flex-end;
+              margin-left: auto;
+              margin-top: auto;
+
+              &__item {
+                color: $color-white;
+                background: rgba($color: $color-gray-900, $alpha: 0.85);
+                border: none;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+                &--red {
+                  background: $color-primary-coral;
+                }
+        
+                &--green {
+                  background: $color-primary-purple;
+                }
+              }
+            }
+          }
+  
+        }
+      }
+
+      &-tag {
+        @include flex($gap: 0.4rem, $jc: center) {
+          flex-wrap: wrap;
+        };
+
+        &__item {
+          padding: 1rem 2.4rem;
+          border-radius: 5.5rem;
+          font-weight: 600;
+          font-size: 1.4rem;
+          line-height: 1;
+          white-space: nowrap;
+          color: $color-gray-900;
+          // border: 1px solid $color-gray-900;
+          @include glass-morphism;
+
+          @include mobile {
+            font-size: 1.2rem;
+            padding: 1rem 1.6rem;
+          }
+
+          &--active {
+            color: $color-white;
+            border: none;
+            background: $color-gray-900;
+            box-shadow:
+            rgba(255, 255, 255, 0.1) 10px 10px 20px,     
+            rgba(0, 0, 0, 0.6) 5px 5px 10px,             
+            rgba(255, 255, 255, 0.2) -5px -5px 10px inset; 
+          }
+
+        }
+      }
+    }
+  }
+  
+}
+
+// section--visual 내부 애니메이션
+.spotlight {
+  will-change: transform;
+  position: absolute;
+  border-radius: 50%;
+  width: 62.5rem;
+  height: 62.5rem;
+  left: 50%;
+  top: calc(50% - 15vh);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(50% 50% at 50% 50%, #6635f0 0%, rgba(160, 135, 229, 0.5) 50%, rgba(217, 217, 217, 0) 100%);
+
+  &-area {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: -1;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1200px;
+    height: 100vh;
+    background-color: $color-black;
+    overflow: hidden;
+  }
+}

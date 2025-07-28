@@ -10,7 +10,7 @@
   height: 100dvh;
   font-size: 1.6rem;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.3;
   color: $color-gray-900;
   background-image: linear-gradient( to bottom right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.6) 100% );
   border-top: 1px solid rgba(255, 255, 255, 0.5);
@@ -146,6 +146,14 @@
       }
 
       .__content {
+
+        &:has(.btn--detail) {
+          line-height: 1.5;
+
+          ul li::before {
+            top: 1rem;
+          }
+        }
 
         .__sub-desc {
           display: block;

@@ -1,6 +1,14 @@
 @use '../utils/index.scss' as *;
 
 .footer {
-  height: 10rem;
+  @include flex ($jc: space-between,$gap: 0.5rem);
+  padding: 2rem 2.5rem;
   background: $color-black;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: $color-gray-200;
+
+  @include mobile {
+    flex-direction: column;
+  }
 }

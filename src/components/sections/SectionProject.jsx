@@ -248,6 +248,7 @@ const SectionProject = ({isPopupVisible, onPopupOpen}) => {
                     type="button"
                     className={`project-tag__item ${activeTag === tag ? 'project-tag__item--active' : ''}`}
                     onClick={() => setActiveTag(tag)}
+                    // data-cursor ='click'
                   >
                     {tag}
                   </button>
@@ -257,7 +258,10 @@ const SectionProject = ({isPopupVisible, onPopupOpen}) => {
           </div>
           <ul className="project-list">
             {filteredProjects.map(project => (
-              <ProjectItem isPopupVisible={isPopupVisible} onPopupOpen={() => onPopupOpen(project.id)} key={project.id} project={project} />
+              <ProjectItem 
+                isPopupVisible={isPopupVisible} 
+                onPopupOpen={() => onPopupOpen(project.id)} key={project.id} project={project} 
+              />
             ))}
           </ul>
         </div>

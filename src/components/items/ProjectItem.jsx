@@ -2,7 +2,7 @@
 const ProjectItem = ({ project, onPopupOpen }) => {
   return (
     <li className="project-list__item">
-      <a className="project-list__item__link" href="#" onClick={e => {e.preventDefault(); onPopupOpen();}}>
+      <a className="project-list__item__link" data-cursor='click' href="#" onClick={e => {e.preventDefault(); onPopupOpen();}}>
         <div className="project-list__item__content project-list__item__content--image">
           <img src={project.image} alt={`${project.title} 스크린 이미지`} />
         </div>

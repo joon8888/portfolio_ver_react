@@ -8,13 +8,13 @@ const Popup = ({selectedProject, isPopupVisible, onPopupClose}) => {
         <div className={`popup ${isPopupVisible ? 'popup--is-open' : '' }`}>
           <div className="__inner">
             <div className="popup__header">
-              <button className="popup__close" onClick={onPopupClose}><span className="sr-only">닫기</span></button>
+              <button className="popup__close" data-cursor="close" onClick={onPopupClose}><span className="sr-only">닫기</span></button>
               <div className='__title-wrap'>
                 {title && (
                   <h2 className="__title" dangerouslySetInnerHTML={{ __html: title }} />
                 )}
                 {url && (
-                  <a className="btn--go-to-site" title="새창열림" href={url} target="_blank" rel="noopener noreferrer"><span className="sr-only">사이트이동</span></a>
+                  <a className="btn--go-to-site" data-cursor="goToSite" title="새창열림" href={url} target="_blank" rel="noopener noreferrer"><span className="sr-only">사이트이동</span></a>
                 )}
               </div>
               {tags.length > 0 && (

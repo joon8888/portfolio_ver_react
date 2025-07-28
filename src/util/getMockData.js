@@ -183,3 +183,30 @@ export const projectMockData = [
     description: '<ul><li>학년 콘텐츠 별 분배 후 <br>개인 작업 진행</li><li><em class="fc-purple">교육용 콘텐츠 UI 개발</em></li></ul>'
   },
 ]
+
+export const projectSkillData = [
+  [
+    { type: 'static', image: 'images/skill_bg_2.png' },
+    { type: 'flip', image: 'images/icon_3d_js.png', title: 'JS', content: '바닐라스크립트 중급<br>클래스 및 <br>모듈 스크립트 위주로 <br>소스 재사용을 높이고 있습니다.' },
+    { type: 'flip', image: 'images/icon_3d_sass.png', title: 'Scss', content: '스타일 컴포넌트 및 <br>모듈화를 통한 <br>소스 효율성을 높이고 있습니다.' },
+    { type: 'static', image: 'images/skill_bg_3.png' }
+  ],
+  [
+    { type: 'static', image: 'images/skill_bg_3.png' },
+    { type: 'flip', image: 'images/icon_3d_react.png', title: 'React', content: 'React 초급<br>실무 투입을 위한 대비로 학습 중입니다.' },
+    { type: 'flip', image: 'images/icon_3d_vue.png', title: 'Vue3', content: 'Vue3 초급<br>실무 투입을 위한 대비로 학습 중입니다.'},
+    { type: 'static', image: 'images/skill_bg_1.png' },
+  ],
+  [
+    { type: 'static', image: 'images/skill_bg_5.png' },
+    { type: 'flip', image: 'images/icon_3d_html.png', title: '웹표준 준수', content: '시멘틱 태그 등을 사용하여 <br>최적화된 웹 사용 경험을 제공하려 노력합니다.' },
+    { type: 'static', image: 'images/skill_bg_4.png' },
+    { type: 'static', image: 'images/skill_bg_1.png' },
+  ],
+  [
+    { type: 'static', image: 'images/skill_bg_1.png' },
+    { type: 'flip', image: 'images/icon_3d_css.png', title: '크로스 브라우징', content: '불필요한 스크립트 사용은 최소화하며, <br>크로스 브라우징이 가능한 인터랙션 구현에 힘씁니다.' },
+    { type: 'static', image: 'images/skill_bg_5.png' },
+    { type: 'static', image: 'images/skill_bg_2.png' },
+  ]
+]

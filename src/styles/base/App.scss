@@ -1,16 +1,56 @@
 @use './../utils/index.scss' as *;
+
 body, html {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  cursor: none;
+}
+
+a, button {
+  cursor: none;
 }
 
 #scroll-wrap {
   height: 100dvh;
   overflow: hidden;
+  clip-path: polygon(50% 50%, 50% 50%, 50% 50%);
+
+  .scrollbar-track,
+  .scrollbar-thumb {
+    display: none !important;
+  }
 }
+
+.intro-bg-wrap {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+
+  .intro-bg--1,
+  .intro-bg--2 {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  .is-active {
+    opacity: 1;
+  }
+
+  &.is-fadeout {
+    transition: opacity 0.8s ease;
+    opacity: 0;
+  }
+}
+
 
 .sr-only {
   position: absolute;
@@ -33,5 +73,14 @@ body, html {
   &-coral {
     color: $color-primary-coral;
     font-weight: 700;
+  }
+}
+
+.br {
+  &--mo-view {
+    display: none;
+    @include mobile {
+      display: block;
+    }
   }
 }

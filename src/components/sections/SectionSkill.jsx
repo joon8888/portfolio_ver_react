@@ -1,6 +1,8 @@
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { projectSkillData } from '../../util/getMockData';
+import SkillItem from '../items/SkillItem';
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -74,119 +76,19 @@ const SectionSkill = () => {
             </div>
             <div className="content-wrap">
               <div className="__inner--grid">
-                <div className="__content--column">
-                  <div className="__content--column__image __content--column__image--static">
-                    <div className="image__front">
-                      <img src="images/skill_bg_1.png" alt="" />
-                    </div>
+                {projectSkillData.map((column, colIndex) => (
+                  <div className="__content--column" key={`col-${colIndex}`}>
+                    {column.map((item, itemIndex) => (
+                      <SkillItem
+                        key={`item-${colIndex}-${itemIndex}`}
+                        type={item.type}
+                        image={item.image}
+                        title={item.title}
+                        content={item.content}
+                      />
+                    ))}
                   </div>
-                  <div className="__content--column__image __content--column__image--flip">
-                    <div className="__inner--flip">
-                      <div className="image__front">
-                        <h3 className="image__front__title">Accessibility</h3>
-                      </div>
-                      <div className="image__back">
-                        <p className="image__back__content">웹접근성 준수</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="__content--column__image __content--column__image--flip">
-                    <div className="__inner--flip">
-                      <div className="image__front">
-                        <h3 className="image__front__title">Accessibility</h3>
-                      </div>
-                      <div className="image__back">
-                        <p className="image__back__content">웹접근성 준수</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="__content--column__image __content--column__image--static">
-                    <div className="image__front">
-                      <img src="images/skill_bg_2.png" alt="" />
-                    </div>
-                  </div>
-                </div>
-                <div className="__content--column">
-                  <div className="__content--column__image __content--column__image--static">
-                    <div className="image__front">
-                      <img src="images/skill_bg_2.png" alt="" />
-                    </div>
-                  </div>
-                  <div className="__content--column__image __content--column__image--static">
-                    <div className="image__front">
-                      <img src="images/skill_bg_3.png" alt="" />
-                    </div>
-                  </div>
-                  <div className="__content--column__image __content--column__image--flip">
-                    <div className="__inner--flip">
-                      <div className="image__front">
-                        <h3 className="image__front__title">Accessibility</h3>
-                      </div>
-                      <div className="image__back">
-                        <p className="image__back__content">웹접근성 준수</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="__content--column__image __content--column__image--static">
-                    <div className="image__front">
-                      <img src="" alt="" />
-                    </div>
-                  </div>
-                </div>
-                <div className="__content--column">
-                  <div className="__content--column__image __content--column__image--static">
-                    <div className="image__front">
-                      <img src="" alt="" />
-                    </div>
-                  </div>
-                  <div className="__content--column__image __content--column__image--flip">
-                    <div className="__inner--flip">
-                      <div className="image__front">
-                        <h3 className="image__front__title">Accessibility</h3>
-                      </div>
-                      <div className="image__back">
-                        <p className="image__back__content">웹접근성 준수</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="__content--column__image __content--column__image--static">
-                    <div className="image__front">
-                      <img src="" alt="" />
-                    </div>
-                  </div>
-                  <div className="__content--column__image __content--column__image--static">
-                    <div className="image__front">
-                      <img src="" alt="" />
-                    </div>
-                  </div>
-                </div>
-                <div className="__content--column">
-                  <div className="__content--column__image __content--column__image--static">
-                    <div className="image__front">
-                      <img src="" alt="" />
-                    </div>
-                  </div>
-                  <div className="__content--column__image __content--column__image--flip">
-                    <div className="__inner--flip">
-                      <div className="image__front">
-                        <h3 className="image__front__title">Accessibility</h3>
-                      </div>
-                      <div className="image__back">
-                        <p className="image__back__content">웹접근성 준수</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="__content--column__image __content--column__image--static">
-                    <div className="image__front">
-                      <img src="" alt="" />
-                    </div>
-                  </div>
-                  <div className="__content--column__image __content--column__image--static">
-                    <div className="image__front">
-                      <img src="" alt="" />
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
